@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#eee9dc">
+  <meta name="description" content="鹿鱼集的公开留言展览板，欢迎留下想说的话。">
+  <title>飞鸽传书 · 鹿鱼集</title>
+  <link rel="icon" href="assets/ink-seal.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="pages.css">
+</head>
+<body class="subpage guestbook-page">
+  <div class="paper-noise" aria-hidden="true"></div>
+  <div class="ink-cursor" aria-hidden="true"><span></span></div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="返回鹿鱼集首页">
+      <span class="brand-seal">鹿</span>
+      <span class="brand-copy"><strong>鹿鱼集</strong><small>人间闲笔 · 自留地</small></span>
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="notes.html">笔墨</a>
+      <a href="photos.html">光影</a>
+      <a class="is-active" href="guestbook.html">留言</a>
+      <a href="about.html">关于</a>
+    </nav>
+    <div class="header-actions">
+      <a class="page-back" href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H6M11 7l-5 5 5 5"></path></svg>卷首</a>
+      <button class="menu-toggle" type="button" aria-label="打开菜单" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="subpage-main">
+    <section class="page-intro">
+      <div class="page-intro-copy">
+        <p class="section-kicker">FLYING LETTER · 公开留言</p>
+        <h1>飞鸽<em>传书</em></h1>
+        <p>鸽子把每一句话带到展览板上。留个称呼，写几句话，所有来到这里的人都会看见。</p>
+        <p class="guestbook-email-line">也可以直接写信：<a data-email-link href="mailto:your-email@example.com"><span data-email>your-email@example.com</span></a></p>
+      </div>
+      <div class="page-intro-index" aria-hidden="true">叁</div>
+      <span class="page-intro-vertical" aria-hidden="true">有 信 自 远 方 来</span>
+    </section>
+
+    <section class="page-section guestbook-page-section" aria-labelledby="guestbook-heading">
+      <div class="guestbook-layout">
+        <form class="guestbook-form" id="guestbook-form">
+          <p class="section-kicker">LEAVE YOUR WORDS</p>
+          <h2 id="guestbook-heading">写一张新便笺</h2>
+          <div class="guestbook-fields">
+            <label><span>称呼</span><input name="name" id="guest-name" type="text" maxlength="30" placeholder="怎么称呼你" required></label>
+            <label><span>邮箱 <small>不会公开</small></span><input name="email" id="guest-email" type="email" maxlength="120" placeholder="选填，方便我回信"></label>
+          </div>
+          <label class="guestbook-message-field"><span>留言</span><textarea name="message" id="guest-message" maxlength="500" rows="6" placeholder="写点什么吧……" required></textarea><small class="guestbook-counter"><b id="guestbook-character-count">0</b> / 500</small></label>
+          <label class="guestbook-honeypot" aria-hidden="true"><span>网站</span><input name="website" tabindex="-1" autocomplete="off"></label>
+          <div class="turnstile-container" id="turnstile-container"></div>
+          <div class="guestbook-submit-row"><p>留言会钉在右侧展览板上公开显示，邮箱只有我能看到。</p><button class="brush-button guestbook-submit" type="submit" id="guestbook-submit">钉上留言 <span>→</span></button></div>
+        </form>
+
+        <div class="guestbook-board-wrap">
+          <div class="board-pigeon" aria-hidden="true">
+            <svg viewBox="0 0 360 300">
+              <g fill="none" stroke="#33352f" stroke-linejoin="round" stroke-linecap="round">
+                <path d="M135 209c-12-38 4-82 38-104 24-16 55-21 80-8 17 9 24 27 46 27 14 0 24-6 34-13-2 20-11 35-27 45 8 36-6 68-37 82-35 16-85 10-112-10Z" fill="#d8d5cd" stroke-width="3.5"/>
+                <path d="M166 126c-20-30-25-54-17-73 20 15 36 32 49 60M175 153c-35-28-62-40-89-37 18 23 40 41 74 57" fill="#a7a69e" stroke-width="3"/>
+                <path d="M328 107l-31 11-15-15 17-7-9-13 36 10 3 7Z" fill="#a34636" stroke-width="2"/>
+                <circle cx="286" cy="89" r="3.5" fill="#252722" stroke="none"/>
+                <path d="M188 233v25M220 230v28M176 259h28M209 259h28" stroke-width="3"/>
+              </g>
+            </svg>
+          </div>
+          <div class="message-wall">
+            <div class="message-wall-head"><div><span>留言展览板</span><b id="guestbook-count">00</b></div><button type="button" id="guestbook-refresh" aria-label="刷新留言"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"></path><path d="M6.1 8.2A7 7 0 0 1 18.8 7M17.9 15.8A7 7 0 0 1 5.2 17"></path></svg>刷新留言</button></div>
+            <div class="message-list" id="message-list" aria-live="polite"><div class="message-loading"><span></span><p>正在翻看留言……</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand"><span class="footer-seal">鹿</span><p>鹿鱼集<small>有信自远方来，不亦乐乎。</small></p></div>
+    <p class="footer-note">每一句话，都会被好好收下</p>
+    <a class="back-top" href="index.html">回到卷首 <span>↑</span></a>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="data.js"></script>
+  <script src="site.js"></script>
+  <script src="guestbook.js"></script>
+</body>
+</html>

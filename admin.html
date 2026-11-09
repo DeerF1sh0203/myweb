@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#eee9dc">
+  <title>鹿鱼集 · 留言管理</title>
+  <link rel="icon" href="assets/ink-seal.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header class="admin-header">
+    <a class="admin-brand" href="index.html">
+      <span>鹿</span>
+      <div><strong>鹿鱼集</strong><small>留言管理</small></div>
+    </a>
+    <a class="back-link" href="index.html">返回网站 →</a>
+  </header>
+
+  <main class="admin-main">
+    <section class="login-panel" id="login-panel">
+      <p class="eyebrow">PRIVATE DESK</p>
+      <h1>翻开<br><em>留言簿</em></h1>
+      <p class="login-copy">输入你在 Cloudflare 中设置的管理口令。口令只保存在当前浏览器标签页，不会被写入网站代码。</p>
+      <form id="login-form">
+        <label for="admin-token">管理口令</label>
+        <div class="token-field">
+          <input id="admin-token" type="password" autocomplete="current-password" placeholder="输入 ADMIN_TOKEN" required>
+          <button type="submit">进入</button>
+        </div>
+        <p class="login-error" id="login-error"></p>
+      </form>
+    </section>
+
+    <section class="dashboard" id="dashboard" hidden>
+      <div class="dashboard-heading">
+        <div>
+          <p class="eyebrow">GUESTBOOK DESK</p>
+          <h1>近日留言 <span id="admin-count">0</span></h1>
+        </div>
+        <div class="dashboard-actions">
+          <button type="button" id="refresh-button">刷新</button>
+          <button type="button" id="logout-button">退出</button>
+        </div>
+      </div>
+      <div class="admin-message-list" id="admin-message-list"></div>
+    </section>
+  </main>
+
+  <div class="admin-toast" id="admin-toast" role="status" aria-live="polite"></div>
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#eee9dc">
+  <meta name="description" content="鹿鱼集近来的随笔与文字记录。">
+  <title>笔墨 · 鹿鱼集</title>
+  <link rel="icon" href="assets/ink-seal.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="pages.css">
+</head>
+<body class="subpage notes-page">
+  <div class="paper-noise" aria-hidden="true"></div>
+  <div class="ink-cursor" aria-hidden="true"><span></span></div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="返回鹿鱼集首页">
+      <span class="brand-seal">鹿</span>
+      <span class="brand-copy"><strong>鹿鱼集</strong><small>人间闲笔 · 自留地</small></span>
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <a class="is-active" href="notes.html">笔墨</a>
+      <a href="photos.html">光影</a>
+      <a href="guestbook.html">留言</a>
+      <a href="about.html">关于</a>
+    </nav>
+    <div class="header-actions">
+      <a class="page-back" href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H6M11 7l-5 5 5 5"></path></svg>卷首</a>
+      <button class="menu-toggle" type="button" aria-label="打开菜单" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="subpage-main">
+    <section class="page-intro">
+      <div class="page-intro-copy">
+        <p class="section-kicker">WRITINGS · 近来文字</p>
+        <h1>笔墨<em>之间</em></h1>
+        <p>一些没有写完的念头，一些值得留下的普通日子。循着字迹，慢慢读。</p>
+        <div class="notes-intro-actions">
+          <button class="brush-button write-trigger" type="button">铺纸落笔 <span>＋</span></button>
+          <span>共 <b id="notes-total">06</b> 篇</span>
+        </div>
+      </div>
+      <div class="page-intro-index" aria-hidden="true">壹</div>
+      <span class="page-intro-vertical" aria-hidden="true">写 给 此 刻</span>
+    </section>
+
+    <section class="page-section notes-page-section" aria-labelledby="notes-heading">
+      <div class="section-heading">
+        <div><p class="section-kicker">RECENT WRITINGS</p><h2 id="notes-heading">近来的字</h2></div>
+        <p class="section-intro">寻常日子<br>也有微光</p>
+      </div>
+
+      <div class="page-toolbar">
+        <div class="filter-list" role="tablist" aria-label="随笔分类">
+          <button class="filter is-active" type="button" data-category="全部" role="tab" aria-selected="true">全部</button>
+          <button class="filter" type="button" data-category="四时" role="tab" aria-selected="false">四时</button>
+          <button class="filter" type="button" data-category="日常" role="tab" aria-selected="false">日常</button>
+          <button class="filter" type="button" data-category="行旅" role="tab" aria-selected="false">行旅</button>
+          <button class="filter" type="button" data-category="心事" role="tab" aria-selected="false">心事</button>
+        </div>
+        <label class="search-inline">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.4"></circle><path d="m16 16 5 5"></path></svg>
+          <input id="notes-search" type="search" placeholder="寻一段文字…" autocomplete="off">
+        </label>
+      </div>
+
+      <div class="notes-grid" id="notes-grid" aria-live="polite"></div>
+      <div class="page-empty" id="notes-empty"><strong>空</strong><p>没有找到对应的文字。</p></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand"><span class="footer-seal">鹿</span><p>鹿鱼集<small>万物有灵，落笔为记。</small></p></div>
+    <p class="footer-note">纸短情长 · 慢慢写，慢慢活</p>
+    <a class="back-top" href="index.html">回到卷首 <span>↑</span></a>
+  </footer>
+
+  <div class="reader" id="reader" role="dialog" aria-modal="true" aria-labelledby="reader-title" hidden>
+    <div class="reader-backdrop" data-close-reader></div>
+    <article class="reader-panel">
+      <header class="reader-header">
+        <button class="reader-close" type="button" data-close-reader aria-label="关闭阅读"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg><span>合卷</span></button>
+        <div class="reader-brand">鹿鱼集 · 闲笔</div>
+        <div class="reader-actions">
+          <button class="reader-action" type="button" id="favorite-button" aria-label="收藏此文"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4S3.6 15.2 3.6 9.3A4.7 4.7 0 0 1 12 6a4.7 4.7 0 0 1 8.4 3.3c0 5.9-8.4 11.1-8.4 11.1Z"></path></svg><span>收藏</span></button>
+          <button class="reader-action" type="button" id="delete-button" aria-label="删除这篇随笔" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M9 7V4h6v3M7 7l1 13h8l1-13M10 11v5M14 11v5"></path></svg><span>删除</span></button>
+        </div>
+      </header>
+      <div class="reader-scroll" id="reader-scroll">
+        <div class="reader-title-area"><p class="reader-meta" id="reader-meta"></p><h2 id="reader-title"></h2><p class="reader-lead" id="reader-lead"></p><div class="title-brush"></div></div>
+        <div class="reader-body" id="reader-body"></div>
+        <div class="reader-end"><span>完</span><p>字落于此，风过留声。</p></div>
+        <div class="reader-progress"><span id="reader-progress-bar"></span></div>
+      </div>
+      <footer class="reader-footer"><span id="reader-date"></span><span>鹿鱼集 · 第 <b id="reader-index"></b> 页</span></footer>
+    </article>
+  </div>
+
+  <div class="editor-dialog" id="editor-dialog" role="dialog" aria-modal="true" aria-labelledby="editor-heading" hidden>
+    <div class="dialog-backdrop" data-close-editor></div>
+    <form class="editor-panel" id="editor-form">
+      <header class="editor-header"><div><p class="section-kicker">A NEW PAGE</p><h2 id="editor-heading">铺纸落笔</h2></div><button class="dialog-close" type="button" data-close-editor aria-label="关闭写作">×</button></header>
+      <div class="editor-fields">
+        <label class="editor-title-field"><span>题</span><input id="note-title" name="title" type="text" maxlength="40" placeholder="给这一刻取个名字" required></label>
+        <label><span>归类</span><select id="note-category" name="category"><option>日常</option><option>四时</option><option>行旅</option><option>心事</option></select></label>
+        <label class="editor-content-field"><span>正文</span><textarea id="note-content" name="content" rows="10" maxlength="8000" placeholder="从此刻写起。空一行即可分段，以「> 」开头可写摘句…" required></textarea></label>
+      </div>
+      <footer class="editor-footer"><p><span id="editor-word-count">0</span> 字 · 存于本机浏览器</p><div><button class="plain-button" type="button" data-close-editor>暂且搁笔</button><button class="brush-button save-note" type="submit">收入集中 <span>→</span></button></div></footer>
+    </form>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="data.js"></script>
+  <script src="site.js"></script>
+  <script src="notes.js"></script>
+</body>
+</html>

@@ -1,0 +1,463 @@
+/* 鹿鱼集 · 我们的记录（私密手账） */
+:root {
+  --pencil: #2c2c2c;
+  --paper: #f5f0e8;
+  --paper-soft: #faf5ed;
+  --ink-soft: #5a5a5a;
+  --red: #e74c3c;
+  --blue: #3498db;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--pencil);
+  background-color: var(--paper);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)' opacity='.18'/%3E%3C/svg%3E");
+  font-family: "Songti SC", "STSong", "SimSun", serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input, textarea { font: inherit; }
+a { color: inherit; }
+
+/* 门锁页 */
+.gate {
+  min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gate-card {
+  position: relative;
+  width: min(440px, 100%);
+  padding: 44px 38px 36px;
+  background: var(--paper-soft);
+  border: 2px dashed var(--pencil);
+  border-radius: 4px 16px 6px 12px;
+  box-shadow: 5px 5px 0 rgba(44, 44, 44, 0.14);
+  transform: rotate(-0.8deg);
+}
+
+.gate-mark {
+  position: absolute;
+  top: -16px;
+  right: 26px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: var(--paper);
+  background: var(--red);
+  border: 2px dashed var(--pencil);
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", serif;
+  font-size: 17px;
+  transform: rotate(3deg);
+}
+
+.gate-card h1 {
+  margin: 0 0 22px;
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", serif;
+  font-size: 52px;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: 0.04em;
+}
+
+.gate-card h1 em {
+  color: var(--red);
+  font-style: italic;
+  text-decoration: underline wavy var(--red) 3px;
+  text-underline-offset: 8px;
+}
+
+.gate-card > p {
+  margin: 0 0 26px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+#gate-form label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+#gate-form input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  color: var(--pencil);
+  background: var(--paper);
+  border: 2px dashed var(--pencil);
+  border-radius: 3px 9px 4px 8px;
+  outline: none;
+}
+
+#gate-form input:focus {
+  box-shadow: 3px 3px 0 rgba(44, 44, 44, 0.16);
+}
+
+#gate-form button {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 16px;
+  color: var(--paper);
+  background: var(--pencil);
+  border: 2px dashed var(--pencil);
+  border-radius: 3px 9px 4px 8px;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease, transform 0.12s ease;
+}
+
+#gate-form button:hover {
+  color: var(--pencil);
+  background: var(--paper);
+  transform: rotate(-0.4deg);
+}
+
+#gate-form button:active {
+  transform: rotate(0.5deg) scale(0.98);
+}
+
+.gate-error {
+  min-height: 18px;
+  margin: 14px 0 0;
+  color: var(--red);
+  font-size: 13px;
+}
+
+/* 主页面 */
+.ours-shell {
+  width: min(960px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 30px 0 50px;
+}
+
+.ours-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 24px;
+  border-bottom: 2px dashed rgba(44, 44, 44, 0.35);
+}
+
+.ours-header h1 {
+  margin: 0;
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", serif;
+  font-size: 44px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.ours-header p {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.ours-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ours-header-actions a,
+.ours-header-actions button {
+  min-height: 40px;
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  color: var(--pencil);
+  background: transparent;
+  border: 2px dashed var(--pencil);
+  border-radius: 3px 8px 4px 7px;
+  font-size: 13px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.ours-header-actions a:hover,
+.ours-header-actions button:hover {
+  color: var(--paper);
+  background: var(--pencil);
+}
+
+.moment-form {
+  margin-top: 30px;
+  padding: 28px;
+  background: var(--paper-soft);
+  border: 2px dashed var(--pencil);
+  border-radius: 4px 14px 5px 10px;
+  box-shadow: 4px 4px 0 rgba(44, 44, 44, 0.12);
+  transform: rotate(-0.5deg);
+}
+
+.moment-form h2,
+.timeline-head h2 {
+  margin: 0 0 22px;
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", serif;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.moment-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.moment-form label > span {
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.moment-form input,
+.moment-form textarea {
+  width: 100%;
+  color: var(--pencil);
+  background: var(--paper);
+  border: 2px dashed var(--pencil);
+  border-radius: 3px 8px 4px 7px;
+  outline: none;
+}
+
+.moment-form input {
+  height: 44px;
+  padding: 0 12px;
+}
+
+.moment-form textarea {
+  padding: 12px;
+  resize: vertical;
+  line-height: 1.7;
+}
+
+.moment-form input:focus,
+.moment-form textarea:focus {
+  box-shadow: 3px 3px 0 rgba(44, 44, 44, 0.14);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-image input {
+  padding: 8px;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding-top: 6px;
+}
+
+.form-actions p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.save-button {
+  min-height: 44px;
+  padding: 0 18px;
+  color: var(--paper);
+  background: var(--pencil);
+  border: 2px dashed var(--pencil);
+  border-radius: 3px 8px 4px 7px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease, transform 0.12s ease;
+}
+
+.save-button:hover {
+  color: var(--pencil);
+  background: var(--paper);
+  transform: rotate(-0.4deg);
+}
+
+.save-button:active {
+  transform: rotate(0.5deg) scale(0.98);
+}
+
+.timeline {
+  margin-top: 38px;
+}
+
+.timeline-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  padding-bottom: 16px;
+  border-bottom: 2px dashed rgba(44, 44, 44, 0.35);
+}
+
+.timeline-head span {
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.timeline-list {
+  position: relative;
+  margin-top: 24px;
+}
+
+.timeline-list::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 7px;
+  border-left: 2px dashed rgba(44, 44, 44, 0.25);
+}
+
+.moment {
+  position: relative;
+  margin: 0 0 28px 30px;
+  padding: 24px;
+  background: var(--paper-soft);
+  border: 2px dashed var(--pencil);
+  border-radius: 4px 13px 5px 10px;
+  box-shadow: 4px 4px 0 rgba(44, 44, 44, 0.1);
+  transform: rotate(-0.5deg);
+}
+
+.moment:nth-child(even) { transform: rotate(0.5deg); }
+
+.moment::before {
+  content: "";
+  position: absolute;
+  left: -23px;
+  top: 24px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--red);
+  border-radius: 50%;
+  background: var(--paper);
+}
+
+.moment-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.moment-meta time { color: var(--red); }
+.moment-meta span + span::before { content: "·"; margin-right: 12px; }
+
+.moment h3 {
+  margin: 13px 0 0;
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", serif;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.moment-note {
+  margin: 10px 0 0;
+  color: #3a3a3a;
+  font-size: 14px;
+  line-height: 1.9;
+  white-space: pre-wrap;
+}
+
+.moment img {
+  display: block;
+  max-width: 100%;
+  margin-top: 16px;
+  border: 2px dashed var(--pencil);
+  border-radius: 3px 12px 4px 8px;
+}
+
+.moment-actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.moment-actions button {
+  min-height: 36px;
+  padding: 0 12px;
+  color: var(--red);
+  background: transparent;
+  border: 2px dashed var(--red);
+  border-radius: 3px 8px 4px 7px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.moment-actions button:hover {
+  color: var(--paper);
+  background: var(--red);
+}
+
+.empty-state {
+  margin: 24px 0 0 30px;
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--ink-soft);
+  border: 2px dashed rgba(44, 44, 44, 0.3);
+  border-radius: 4px 12px 5px 9px;
+}
+
+.empty-state strong {
+  display: block;
+  margin-bottom: 10px;
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", serif;
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.ours-footer {
+  margin-top: 50px;
+  padding-top: 20px;
+  color: var(--ink-soft);
+  border-top: 2px dashed rgba(44, 44, 44, 0.35);
+  font-size: 13px;
+  text-align: center;
+}
+
+.ours-footer p { margin: 0; }
+
+@media (max-width: 600px) {
+  .ours-shell { width: min(100% - 24px, 960px); padding-top: 18px; }
+  .ours-header { align-items: flex-start; flex-direction: column; gap: 16px; }
+  .ours-header h1 { font-size: 36px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .form-actions { align-items: flex-start; flex-direction: column; gap: 16px; }
+  .save-button { width: 100%; justify-content: center; }
+  .moment-form { padding: 22px 18px; }
+  .moment { margin-left: 26px; padding: 20px 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

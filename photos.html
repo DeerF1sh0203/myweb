@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#eee9dc">
+  <meta name="description" content="鹿鱼集的光影记录与照片展览。">
+  <title>光影 · 鹿鱼集</title>
+  <link rel="icon" href="assets/ink-seal.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="pages.css">
+</head>
+<body class="subpage photos-page">
+  <div class="paper-noise" aria-hidden="true"></div>
+  <div class="ink-cursor" aria-hidden="true"><span></span></div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="返回鹿鱼集首页">
+      <span class="brand-seal">鹿</span>
+      <span class="brand-copy"><strong>鹿鱼集</strong><small>人间闲笔 · 自留地</small></span>
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="notes.html">笔墨</a>
+      <a class="is-active" href="photos.html">光影</a>
+      <a href="guestbook.html">留言</a>
+      <a href="about.html">关于</a>
+    </nav>
+    <div class="header-actions">
+      <a class="page-back" href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H6M11 7l-5 5 5 5"></path></svg>卷首</a>
+      <button class="menu-toggle" type="button" aria-label="打开菜单" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="subpage-main">
+    <section class="page-intro">
+      <div class="page-intro-copy">
+        <p class="section-kicker">PHOTO JOURNAL · 光影片隅</p>
+        <h1>光影<em>留情</em></h1>
+        <p>镜头替我记住一些来不及写下的片刻。窗边的光、雨后的路，和那些不想忘记的日常。</p>
+      </div>
+      <div class="page-intro-index" aria-hidden="true">贰</div>
+      <span class="page-intro-vertical" aria-hidden="true">镜 头 替 我 记 住</span>
+    </section>
+
+    <section class="page-section photos-page-section" aria-labelledby="gallery-heading">
+      <div class="section-heading">
+        <div><p class="section-kicker">PHOTO EXHIBITION</p><h2 id="gallery-heading">光影片隅</h2></div>
+        <p class="section-intro">点击照片<br>可以查看大图</p>
+      </div>
+      <div class="gallery-grid" id="gallery-grid" aria-live="polite"></div>
+      <div class="gallery-footer"><p><span>✦</span> 照片来自我的日常记录</p><span class="gallery-count"><b id="gallery-count">06</b> 帧</span></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand"><span class="footer-seal">鹿</span><p>鹿鱼集<small>万物有灵，落笔为记。</small></p></div>
+    <p class="footer-note">光影会旧 · 记忆常新</p>
+    <a class="back-top" href="index.html">回到卷首 <span>↑</span></a>
+  </footer>
+
+  <div class="photo-viewer" id="photo-viewer" role="dialog" aria-modal="true" aria-labelledby="photo-viewer-title" hidden>
+    <div class="photo-viewer-backdrop" data-close-photo></div>
+    <div class="photo-viewer-shell">
+      <header class="photo-viewer-header">
+        <button class="photo-viewer-close" type="button" data-close-photo aria-label="关闭照片"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg><span>收起光影</span></button>
+        <span class="photo-viewer-counter" id="photo-viewer-counter">01 / 06</span>
+      </header>
+      <div class="photo-viewer-stage">
+        <button class="photo-nav photo-nav-prev" type="button" id="photo-prev" aria-label="上一张"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"></path></svg></button>
+        <img id="photo-viewer-image" src="" alt="">
+        <button class="photo-nav photo-nav-next" type="button" id="photo-next" aria-label="下一张"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"></path></svg></button>
+      </div>
+      <footer class="photo-viewer-caption"><div><p id="photo-viewer-date"></p><h2 id="photo-viewer-title"></h2></div><p id="photo-viewer-note"></p></footer>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="data.js"></script>
+  <script src="site.js"></script>
+  <script src="photos.js"></script>
+</body>
+</html>

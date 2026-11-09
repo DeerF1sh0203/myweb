@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1000" viewBox="0 0 1400 1000">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#cfc9bb"/><stop offset="1" stop-color="#706d64"/></linearGradient>
+    <radialGradient id="glow"><stop offset="0" stop-color="#fff8e8" stop-opacity=".38"/><stop offset="1" stop-color="#fff8e8" stop-opacity="0"/></radialGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="12"/></filter>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg)"/>
+  <rect width="100%" height="100%" fill="url(#glow)"/>
+  <g fill="none" stroke="#30312d">
+    <rect x="120" y="90" width="1160" height="810" fill="none" stroke="#30312d" stroke-width="14" opacity=".45"/>
+    <path d="M700 90v810M120 500h1160" stroke="#30312d" stroke-width="9" opacity=".3"/>
+    <circle cx="425" cy="385" r="190" fill="#a64b3a" opacity=".2" filter="url(#blur)"/>
+    <path d="M130 783c190-112 350-133 520-62 170 72 309 61 615-76v254H130Z" fill="#383a33" opacity=".44" filter="url(#blur)"/>
+    <path d="M929 504c-8 85 26 141 98 169M1002 620c-49-11-82-47-96-107M1000 607c55-17 93-55 111-115" fill="none" stroke="#30322d" stroke-width="7" opacity=".48"/>
+    <path d="M130 736c183-70 317-58 447 12 143 77 292 81 573-25" fill="none" stroke="#30322d" stroke-width="3" opacity=".22"/></g>
+  <rect width="100%" height="100%" filter="url(#grain)" opacity=".11"/>
+  <rect x="45" y="45" width="1310" height="910" fill="none" stroke="#f4eee3" stroke-opacity=".34" stroke-width="2"/>
+  <text x="78" y="912" fill="#f5efe4" fill-opacity=".72" font-family="Georgia, serif" font-size="24" letter-spacing="7">PHOTO 04</text>
+  <text x="1318" y="910" text-anchor="end" fill="#f5efe4" fill-opacity=".8" font-family="KaiTi, STKaiti, serif" font-size="42" letter-spacing="8">将暮</text>
+</svg>

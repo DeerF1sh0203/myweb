@@ -1,0 +1,9 @@
+name = "deerfish"
+compatibility_date = "2026-11-01"
+pages_build_output_dir = "."
+
+# 创建 D1 数据库后，把 database_id 换成你自己的 ID
+[[d1_databases]]
+binding = "DB"
+database_name = "deerfish-guestbook"
+database_id = "PASTE_YOUR_D1_DATABASE_ID"

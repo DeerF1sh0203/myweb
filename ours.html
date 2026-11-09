@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#f5f0e8">
+  <title>我们的记录 · 鹿鱼集</title>
+  <link rel="icon" href="assets/ink-seal.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="ours.css">
+</head>
+<body>
+  <div class="ours-shell" id="ours-main">
+    <header class="ours-header">
+      <div>
+        <h1>我们的记录</h1>
+        <p>照片与历程，只给你和我。</p>
+      </div>
+      <div class="ours-header-actions">
+        <a href="index.html">回首页</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="moment-form">
+        <h2>记下一个时刻</h2>
+        <form id="moment-form">
+          <div class="form-row">
+            <label>
+              <span>标题</span>
+              <input name="title" id="moment-title" type="text" maxlength="40" placeholder="给这一刻起个名字" required>
+            </label>
+            <label>
+              <span>日期</span>
+              <input name="date" id="moment-date" type="date" required>
+            </label>
+          </div>
+          <label class="form-place">
+            <span>地点</span>
+            <input name="place" id="moment-place" type="text" maxlength="40" placeholder="我们在哪里">
+          </label>
+          <label class="form-note">
+            <span>想说的话</span>
+            <textarea name="note" id="moment-note" maxlength="500" rows="4" placeholder="那天的天气、心情，和为什么值得记住…"></textarea>
+          </label>
+          <label class="form-image">
+            <span>照片（选填）</span>
+            <input name="image" id="moment-image" type="file" accept="image/*">
+          </label>
+          <div class="form-actions">
+            <p>照片和文字只保存在这台设备上。</p>
+            <button class="save-button" type="submit">收进我们的时间线 <span>→</span></button>
+          </div>
+        </form>
+      </section>
+
+      <section class="timeline">
+        <div class="timeline-head">
+          <h2>一起走过的路</h2>
+          <span id="moment-count">0 个时刻</span>
+        </div>
+        <div class="timeline-list" id="timeline-list"></div>
+      </section>
+    </main>
+
+    <footer class="ours-footer">
+      <p>鹿鱼集 · 只属于我们的角落</p>
+    </footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="ours.js"></script>
+</body>
+</html>
+

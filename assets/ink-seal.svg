@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="5" fill="#a34636"/>
+  <rect x="5" y="5" width="54" height="54" rx="2" fill="none" stroke="#f1e5d5" stroke-opacity=".45" stroke-width="2"/>
+  <text x="32" y="45" text-anchor="middle" font-family="KaiTi, STKaiti, serif" font-size="40" fill="#f6eee2">鹿</text>
+</svg>
